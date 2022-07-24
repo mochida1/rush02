@@ -12,8 +12,8 @@ LIBS = libs
 INCLUDES = -I /headers
 
 # Lists sources. Manually because of norm...
-SRC_LIST = me.c \
-main.c \
+SRC_LIST = main.c \
+
 
 # Names sources
 SOURCES = $(addprefix $(SOURCEDIR)/,$(SRC_LIST))
@@ -32,7 +32,7 @@ FSF = -fsanitize=address
 RUN_ARGS = ""
 
 $(NAME): $(OBJS)
-	@$(CC) $(CF) $(OBJS) $(INCLUDES) -o $(NAME)
+	@$(CC) $(CF) $(OBJS) -L ./Libft -lft $(INCLUDES) -o $(NAME)
 
 $(NAME_FS): $(OBJS)
 	@$(CC) $(CF) $(FSF) $(OBJS) $(INCLUDES) -o $(NAME_FS)
